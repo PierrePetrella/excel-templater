@@ -29,7 +29,7 @@ col_max = 50
 # Get handle on wb
 wb = read_wb_from_managed_folder(input_folder)
 # For each row of the metadata Table
-for index, row in metadata_df.iterrows():
+for index, row in input_metadata_df.iterrows():
     sheet_name = row["sheet_name"]
     dataset_name = row["dataset_name"]
     dataset = dataiku.Dataset(dataset_name)
