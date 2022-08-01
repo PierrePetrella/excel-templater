@@ -7,17 +7,22 @@ from helper_functions import *
 ### Get handles in INPUT and OUTPUT 
 # Get handle on input folders
 input_folder_name = get_input_names_for_role('input_folder')[0]
-input_dataset = dataiku.Folder(input_folder_name)
+input_folder = dataiku.Folder(input_folder_name)
 
 # Get handle on output dataset name to feed to the "COPY" query
 output_folder_name = get_output_names_for_role('output_folder')[0]
 output_folder = dataiku.Folder(output_folder_name)
 
+# Retrieve mandatory user-defined parameters
+SQL_Tag = get_recipe_config().get('SQL_Tag', "SQL_Tag")
+cnx_name = get_recipe_config().get('sql_cnx', "")
+dataset_id = get_recipe_config().get('dataset_id', "dataset_id")
+
 
 row_max = 50
 col_max = 50
 # Get haddle on the input workbook
-wb = read_wb_from_managed_folder(start_template)
+wb = read_wb_from_managed_folder(input_folder)
 
 for sheet_name in wb.sheetnames:
     ws = wb[sheet_name]
