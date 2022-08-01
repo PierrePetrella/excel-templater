@@ -34,7 +34,7 @@ for sheet_name in wb.sheetnames:
         #ws = populate_table_in_ws(df, ws,tag[1], tag[2])
         start_row = tag[1]
         start_col = tag[2]
-        df_np = df.values()
+        df_np = df.to_numpy()
         for row_num in range(df.shape[0]):
             for col_num in range (df.shape[1]):
                 ws.cell(row = (row_num + start_row), column = (col_num +start_col)).value =  df_np[row_num][col_num]
