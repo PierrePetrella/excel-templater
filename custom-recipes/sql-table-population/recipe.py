@@ -16,7 +16,7 @@ output_folder = dataiku.Folder(output_folder_name)
 # Retrieve mandatory user-defined parameters
 SQL_Tag = get_recipe_config().get('SQL_Tag', "SQL_Tag")
 cnx_name = get_recipe_config().get('sql_cnx', "")
-dataset_id = get_recipe_config().get('dataset_id', "dataset_id")
+output_file_name = get_recipe_config().get('output_file_name',input_folder.list_paths_in_partition()[0].split(".")[0] )
 
 
 row_max = 50
