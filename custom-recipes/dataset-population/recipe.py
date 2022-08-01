@@ -13,11 +13,10 @@ input_metadata_name = get_input_names_for_role('input_metadata')[0]
 input_metadata_dataset = dataiku.Dataset(input_folder_name)
 input_metadata_df = input_metadata_dataset.get_dataframe()
 
+input_datasets = get_input_names_for_role('input_metadata')
 
 
-
-
-# Get handle on output dataset name to feed to the "COPY" query
+# Get handle on output folder
 output_folder_name = get_output_names_for_role('output_folder')[0]
 output_folder = dataiku.Folder(output_folder_name)
 
