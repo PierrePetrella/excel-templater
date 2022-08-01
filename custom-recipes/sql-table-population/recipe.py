@@ -10,7 +10,7 @@ input_dataset = dataiku.Folder(input_folder_name)
 
 # Get handle on output dataset name to feed to the "COPY" query
 output_folder_name = get_output_names_for_role('output_folder')[0]
-output_dataset = dataiku.Folder(output_folder_name)
+output_folder = dataiku.Folder(output_folder_name)
 
 
 row_max = 50
