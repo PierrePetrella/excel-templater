@@ -13,7 +13,7 @@ input_metadata_name = get_input_names_for_role('input_metadata')[0]
 input_metadata_dataset = dataiku.Dataset(input_folder_name)
 input_metadata_df = input_metadata_dataset.get_dataframe()
 
-input_datasets = get_input_names_for_role('input_metadata')
+input_datasets = get_input_names_for_role('input_datasets')
 
 
 # Get handle on output folder
