@@ -38,7 +38,6 @@ for sheet_name in wb.sheetnames:
         for row_num in range(df.shape[0]):
             for col_num in range (df.shape[1]):
                 ws.cell(row = (row_num + start_row), column = (col_num +start_col)).value =  df_np[row_num][col_num]
-        return ws
 
 file_name = output_template_name
 write_wb_to_managed_folder(wb,output_folder, output_file_name)
