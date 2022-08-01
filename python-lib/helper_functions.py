@@ -40,7 +40,7 @@ def populate_table_in_ws(df, ws, start_row, start_col):
 
 
 # Find a SQL tag in worksheets and return coordinates
-def find_tags_in_ws(ws,row_max, col_max):
+def find_tags_in_ws(ws,query_tag,row_max, col_max):
     tags = []
     for row_idx in range(1,row_max):
         for col_idx in range (1,col_max):
