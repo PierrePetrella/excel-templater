@@ -27,7 +27,7 @@ output_file_name = get_recipe_config().get('output_file_name',input_folder.list_
 row_max = 50
 col_max = 50
 # Get handle on wb
-wb = read_wb_from_managed_folder(template_folder)
+wb = read_wb_from_managed_folder(input_folder)
 # For each row of the metadata Table
 for index, row in metadata_df.iterrows():
     sheet_name = row["sheet_name"]
