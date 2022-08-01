@@ -32,7 +32,7 @@ def read_wb_from_managed_folder(input_folder):
 
 # Write dataset to sheet at an Row/ Column position
 def populate_table_in_ws(df, ws, start_row, start_col):
-    df_np = df.to_numpy()
+    df_np = df.to_numpy
     for row_num in range(df.shape[0]):
         for col_num in range (df.shape[1]):
             ws.cell(row = (row_num + start_row), column = (col_num +start_col)).value =  df_np[row_num][col_num]
