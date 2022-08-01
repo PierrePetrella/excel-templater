@@ -41,27 +41,19 @@
             "mandatory": true
         },
         {
-            "name": "parameter2",
-            "label": "Parameter 2 label",
-            "type": "INT",
-            "defaultValue": 42
-            /* Note that standard json parsing will return it as a double in Python (instead of an int), so you need to write
-               int(get_recipe_config()['parameter2'])
-            */
-        },
-        // A "SELECT" parameter is a multi-choice selector. Choices are specified using the selectChoice field
-        {
             "name": "sql_cnx",
             "label": "Dataiku Connection to fetch tables from",
             "description": "Dataiku Connection to fetch tables from",
             "type": "CONNECTION",
             "mandatory": true
+        },
+        {
+            "name": "output_file_name",
+            "label": "Output Excel Name",
+            "description": "Name the output file name",
+            "type": "STRING",
+            "mandatory": true
         }
     ],
-    // The field "resourceKeys" holds a list of keys that allows to limit the number
-    // of concurrent executions and activities triggered by this recipe.
-    //
-    // Administrators can configure the limit per resource key in the Administration > Settings > Flow build
-    // screen.
     "resourceKeys": []
 }
