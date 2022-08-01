@@ -22,5 +22,24 @@ output_folder = dataiku.Folder(output_folder_name)
 
 # Retrieve mandatory user-defined parameters
 input_tag = get_recipe_config().get('input_tag', "DATASET")
-cnx_name = get_recipe_config().get('sql_cnx', "")
 output_file_name = get_recipe_config().get('output_file_name',input_folder.list_paths_in_partition()[0].split(".")[0] )
+
+row_max = 50
+col_max = 50
+# Get handle on wb
+wb = read_wb_from_managed_folder(template_folder)
+# For each row of the metadata Table
+for index, row in metadata_df.iterrows():
+    sheet_name = row["sheet_name"]
+    dataset_name = row["dataset_name"]
+    dataset = dataiku.Dataset(dataset_name)
+    df = dataset.get_dataframe()
+    if sheet_name in wb.sheetnames:
+        ws = wb[sheet_name]
+        tags = find_tags_in_ws(ws, insert_tag, row_max, col_max)
+        for tag in tags:
+            populate_table_in_ws(df, ws, tag[1], tag[2])
+    else:
+        raise Exception("Sheet {} doesn't exist".format(sheet_name))
+
+write_wb_to_managed_folder(wb,output_folder, output_file_name + ".xlsx")
