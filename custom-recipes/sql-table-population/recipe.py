@@ -14,7 +14,7 @@ output_folder_name = get_output_names_for_role('output_folder')[0]
 output_folder = dataiku.Folder(output_folder_name)
 
 # Retrieve mandatory user-defined parameters
-SQL_Tag = get_recipe_config().get('SQL_Tag', "SQL_Tag")
+query_tag = get_recipe_config().get('SQL_Tag', "SQL_Tag")
 cnx_name = get_recipe_config().get('sql_cnx', "")
 output_file_name = get_recipe_config().get('output_file_name',input_folder.list_paths_in_partition()[0].split(".")[0] )
 
@@ -26,7 +26,7 @@ wb = read_wb_from_managed_folder(input_folder)
 
 for sheet_name in wb.sheetnames:
     ws = wb[sheet_name]
-    tags = find_tags_in_ws(ws,row_max, col_max)
+    tags = find_tags_in_ws(ws,query_tag, row_max, col_max)
     for tag in tags:
         raw_query = tag[0]
         query = parse_query_from_raw_query(raw_query)
