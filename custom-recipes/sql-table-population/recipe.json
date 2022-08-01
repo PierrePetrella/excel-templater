@@ -34,13 +34,6 @@
     
     "params": [
         {
-            "name": "SQL_Tag",
-            "label": "SQL Tag",
-            "type": "STRING",
-            "description": "SQL Tag used to tag cell with query - SQL Tag must be the first characters of that cell",
-            "mandatory": true
-        },
-        {
             "name": "sql_cnx",
             "label": "Dataiku Connection to fetch tables from",
             "description": "Dataiku Connection to fetch tables from",
@@ -48,11 +41,19 @@
             "mandatory": true
         },
         {
+            "name": "SQL_Tag",
+            "label": "SQL Tag",
+            "type": "STRING",
+            "description": "SQL Tag used to tag cell with query - SQL Tag must be the first characters of that cell",
+            "mandatory": false
+        },
+        
+        {
             "name": "output_file_name",
             "label": "Output Excel Name",
             "description": "Name the output file name",
             "type": "STRING",
-            "mandatory": true
+            "mandatory": false
         }
     ],
     "resourceKeys": []
