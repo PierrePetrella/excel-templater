@@ -9,7 +9,7 @@ from helper_functions import *
 input_folder_name = get_input_names_for_role('input_folder')[0]
 input_folder = dataiku.Folder(input_folder_name)
 
-# Get handle on output dataset name to feed to the "COPY" query
+# Get handle on output folder
 output_folder_name = get_output_names_for_role('output_folder')[0]
 output_folder = dataiku.Folder(output_folder_name)
 
