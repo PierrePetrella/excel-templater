@@ -39,5 +39,5 @@ for sheet_name in wb.sheetnames:
             for col_num in range (df.shape[1]):
                 ws.cell(row = (row_num + start_row), column = (col_num +start_col)).value =  df_np[row_num][col_num]
 
-write_wb_to_managed_folder(wb,output_folder, output_file_name)
+write_wb_to_managed_folder(wb,output_folder, output_file_name + ".xlsx")
 
