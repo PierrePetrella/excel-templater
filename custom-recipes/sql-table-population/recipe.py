@@ -1,7 +1,7 @@
 import dataiku
 import pandas as pd, numpy as np
 from dataiku import pandasutils as pdu
-
+from helper_functions import *
 
 ### Get handles in INPUT and OUTPUT 
 # Get handle on input folders
