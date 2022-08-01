@@ -34,5 +34,5 @@ for sheet_name in wb.sheetnames:
         ws = populate_table_in_ws(df, ws,tag[1], tag[2])
 
 file_name = output_template_name
-write_wb_to_managed_folder(wb,output_folder, file_name)
+write_wb_to_managed_folder(wb,output_folder, output_file_name)
 
