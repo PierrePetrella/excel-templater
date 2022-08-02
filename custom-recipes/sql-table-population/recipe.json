@@ -4,7 +4,7 @@
         "label": "Populate Excel Template from SQL Queries",
         
         "description": "Populate Excel Template from SQL Queries",
-        "icon": "icon-table"
+        "icon": "icon-file-text"
     },
     "kind": "PYTHON",
     "selectableFromFolder": "input_folder",
