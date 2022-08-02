@@ -9,10 +9,6 @@ from helper_functions import *
 input_folder_name = get_input_names_for_role('input_folder')[0]
 input_folder = dataiku.Folder(input_folder_name)
 
-input_metadata_name = get_input_names_for_role('input_metadata')[0]
-input_metadata_dataset = dataiku.Dataset(input_metadata_name)
-input_metadata_df = input_metadata_dataset.get_dataframe()
-
 input_datasets = get_input_names_for_role('input_datasets')
 
 
