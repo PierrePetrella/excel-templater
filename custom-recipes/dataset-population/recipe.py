@@ -32,7 +32,7 @@ for sheet_name in wb.sheetnames:
     for tag in tags:
         if len(tag)!=3:
             raise Exception("Tag cannot be properly extracted from sheet {}".format(sheet_name))
-        if not tag[0].contains("."):
+        if "." not in tag[0]:
             raise Exception("Tag {} is not well formatted".format(tag[0]))
         dataset_name = tag[0].split(".")[1]
         dataset = dataiku.Dataset(dataset_name)
