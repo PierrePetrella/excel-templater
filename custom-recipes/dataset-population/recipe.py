@@ -30,7 +30,8 @@ for sheet_name in wb.sheetnames:
     ws = wb[sheet_name]
     tags = find_tags_in_ws(ws, insert_tag, row_max, col_max)
     for tag in tags:
-        print(tag)
+        if len(tag)!=3:
+            raise Exception("Tag {} is not well formated".format(tag))
         dataset_name = tag[0].split(".")[1]
         dataset = dataiku.Dataset(dataset_name)
         df = dataset.get_dataframe()
