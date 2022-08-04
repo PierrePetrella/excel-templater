@@ -64,3 +64,23 @@ def get_df_from_query(cnx_name,query):
     executor = SQLExecutor2(connection=cnx_name)
     df = executor.query_to_df(query)
     return df
+
+def get_project_var(project_var):
+    client = dataiku.api_client()
+    project_api = client.get_default_project()
+    v = project_api.get_variables()
+    var_value = v["standard"].get(project_var,None)
+    return var_value
+
+def insert_project_variables_in_query(query):
+    #pattern = re.compile("@([a-zA-Z0-9_]*)[; ]?")
+    pattern = re.compile("@([a-zA-Z0-9_]*)")
+    variables = pattern.findall(query)
+    query = query.replace("@","")
+    for var in variables:
+        var_value = get_project_var(var)
+        if var_value !=None:
+            query = query.replace(var, get_project_var(var))
+        else:
+            raise Exception("Project variable {} does not exist".format(var))
+    return query
