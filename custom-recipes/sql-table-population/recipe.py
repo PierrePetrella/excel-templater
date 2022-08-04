@@ -30,6 +30,7 @@ for sheet_name in wb.sheetnames:
     for tag in tags:
         raw_query = tag[0]
         query = parse_query_from_raw_query(raw_query)
+        query = insert_project_variables_in_query(query)
         df = get_df_from_query(cnx_name,query)
         ws = populate_table_in_ws(df, ws,tag[1], tag[2])
         
