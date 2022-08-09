@@ -26,7 +26,7 @@ col_max = 50
 ### Look for insert_tags and insert the associated dataset ###
 wb = read_wb_from_managed_folder(input_folder)
 
-def popluate_wb_from_dataset(wb, insert_tag, row_max=50, col_max=50)
+def popluate_wb_from_dataset(wb, insert_tag, row_max=50, col_max=50):
     for sheet_name in wb.sheetnames:
         ws = wb[sheet_name]
         tags = find_tags_in_ws(ws, insert_tag, row_max, col_max)
