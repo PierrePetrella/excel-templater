@@ -44,7 +44,7 @@
     
     "params": [
         {
-            "name": "insert_tag",
+            "name": "dataset_tag",
             "label": "Insert Tag",
             "type": "STRING",
             "description": "SQL Tag used to tag cell with query - SQL Tag must be the first characters of that cell",

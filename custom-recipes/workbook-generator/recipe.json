@@ -1,0 +1,70 @@
+// This file is the descriptor for the Custom code recipe test
+{
+    "meta": {
+        "label": "Populate Excel Template from SQL Queries & Dataiku Datasets",
+        
+        "description": "Populate Excel Template from SQL Queries & Dataiku Datasets",
+        "icon": "icon-book"
+    },
+    "kind": "PYTHON",
+    "selectableFromFolder": "input_folder",
+    "inputRoles": [
+        {
+            "name": "input_folder",
+            "label": "Input Template Folder",
+            "description": "Folder containing the template to populate",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": false,
+            "acceptsManagedFolder": true
+            
+        },
+        {
+            "name": "input_datasets",
+            "label": "Datasets to populate the excel template",
+            "description": "Datasets to populate the excel template",
+            "arity": "NARY",
+            "required": false,
+            "acceptsDataset": true,
+            "acceptsManagedFolder": false
+            
+        }
+    ],
+    "outputRoles": [
+        {
+            "name": "output_folder",
+            "label": "Output Template Folder",
+            "description": "Folder to store output template folder",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": false,
+            "acceptsManagedFolder": true
+        }
+    ],
+    
+    "params": [
+        {
+            "name": "sql_cnx",
+            "label": "Dataiku Connection to fetch tables from",
+            "description": "Dataiku Connection to fetch tables from",
+            "type": "CONNECTION",
+            "mandatory": true
+        },
+        {
+            "name": "SQL_Tag",
+            "label": "SQL Tag",
+            "type": "STRING",
+            "description": "SQL Tag used to tag cell with query - SQL Tag must be the first characters of that cell",
+            "mandatory": false
+        },
+        
+        {
+            "name": "output_file_name",
+            "label": "Output Excel Name",
+            "description": "Name the output file name",
+            "type": "STRING",
+            "mandatory": false
+        }
+    ],
+    "resourceKeys": []
+}
