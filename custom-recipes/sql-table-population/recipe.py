@@ -24,7 +24,7 @@ col_max = 50
 # Get haddle on the input workbook
 wb = read_wb_from_managed_folder(input_folder)
 
-poluate_wb_from_sql(wb,cnx_name,sql_tag,row_max=50, col_max=50)
+poluate_wb_from_sql(wb,cnx_name,sql_tag,row_max, col_max)
   
 write_wb_to_managed_folder(wb,output_folder, output_file_name + ".xlsx")
 
