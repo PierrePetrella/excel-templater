@@ -29,7 +29,7 @@ for sheet_name in wb.sheetnames:
     tags = find_tags_in_ws(ws,query_tag, row_max, col_max)
     for tag in tags:
         raw_query = tag[0]
-        query = query.replace(query_tag,"")
+        query = raw_query.replace(query_tag,"")
         query = insert_project_variables_in_query(query)
         df = get_df_from_query(cnx_name,query)
         ws = populate_table_in_ws(df, ws,tag[1], tag[2])
