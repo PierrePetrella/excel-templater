@@ -51,15 +51,6 @@ def find_tags_in_ws(ws,query_tag,row_max, col_max):
     return tags
 
 
-#def parse_query_from_raw_query(raw_query):
-#    result = re.search('<(.*)>', str(raw_query))
-#    if result != None:
-#        query = result.group(1)
-#    else:
-#        raise Exception("No query found in the tagged cell of value : {}".format(raw_query))
-#    return query
-
-
 def get_df_from_query(cnx_name,query):
     executor = SQLExecutor2(connection=cnx_name)
     df = executor.query_to_df(query)
@@ -84,3 +75,14 @@ def insert_project_variables_in_query(query):
         else:
             raise Exception("Project variable {} does not exist".format(var))
     return query
+
+def poluate_wb_from_sql(wb,cnx_name,sql_tag,row_max=50, col_max=50):
+    for sheet_name in wb.sheetnames:
+        ws = wb[sheet_name]
+        tags = find_tags_in_ws(ws,sql_tag, row_max, col_max)
+        for tag in tags:
+            raw_query = tag[0]
+            query = raw_query.replace(sql_tag,"")
+            query = insert_project_variables_in_query(query)
+            df = get_df_from_query(cnx_name,query)
+            ws = populate_table_in_ws(df, ws,tag[1], tag[2])
