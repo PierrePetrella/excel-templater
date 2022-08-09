@@ -51,13 +51,13 @@ def find_tags_in_ws(ws,query_tag,row_max, col_max):
     return tags
 
 
-def parse_query_from_raw_query(raw_query):
-    result = re.search('<(.*)>', str(raw_query))
-    if result != None:
-        query = result.group(1)
-    else:
-        raise Exception("No query found in the tagged cell of value : {}".format(raw_query))
-    return query
+#def parse_query_from_raw_query(raw_query):
+#    result = re.search('<(.*)>', str(raw_query))
+#    if result != None:
+#        query = result.group(1)
+#    else:
+#        raise Exception("No query found in the tagged cell of value : {}".format(raw_query))
+#    return query
 
 
 def get_df_from_query(cnx_name,query):
