@@ -41,7 +41,7 @@
             "mandatory": true
         },
         {
-            "name": "SQL_Tag",
+            "name": "sql_tag",
             "label": "SQL Tag",
             "type": "STRING",
             "description": "SQL Tag used to tag cell with query - SQL Tag must be the first characters of that cell",

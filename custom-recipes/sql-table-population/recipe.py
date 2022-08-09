@@ -14,7 +14,7 @@ output_folder_name = get_output_names_for_role('output_folder')[0]
 output_folder = dataiku.Folder(output_folder_name)
 
 # Retrieve mandatory user-defined parameters
-sql_tag = get_recipe_config().get('SQL_Tag', "SQL_Tag")
+sql_tag = get_recipe_config().get('sql_tag', "SQL_Tag")
 cnx_name = get_recipe_config().get('sql_cnx', "")
 output_file_name = get_recipe_config().get('output_file_name',input_folder.list_paths_in_partition()[0].split(".")[0] )
 
