@@ -25,16 +25,16 @@ Write the resulting excel file in an output folder.
 
 - Input Parameter:
 Query Tag
-Connection (all queried tables must be accessible through this one synapse connection)
+Connection (all queried tables must be accessible through this SINGLE SQL connection)
 
 
-- DSS Input : Managed Folder (Containing excel template)
-Can be stored on Blob storage connection or local File System connection
-See attached files for example of template. (See demo DSS project)
+- DSS Input
+Managed Folder (Containing excel template)
+Can be stored on any File System connection
 
-
-- DSS Output : Managed Folder (Containing Excel file template populated with data)
-Can be stored on Blob storage connection or local File System connection
+- DSS Output 
+Managed Folder (Containing Excel file template populated with data)
+Can be stored on any File System connection
 
 
 - Specification on the tag structure
@@ -46,7 +46,7 @@ Any combination of characters and underscores following the @ will be used as th
 
 2. Automatic Insert of DSS dataset into Excel template
 
-Preview of final Component
+- Preview of final Component
 
 ![](./resources/Templater-dataset.png)
 
@@ -67,16 +67,16 @@ Tag name (to be looked for in each sheet)
 
 - DSS Input
 Dataiku datasets (containing the data to use to populate the excel template)
-Can be stored in Synapse, Blob Storage or the local file system.
+Can be stored in any dataiku dataset with read access.
 One Dataiku metadata dataset (Mapping a dataset to an excel sheet)
-Can be stored in Synapse, Blob Storage or the local file system.
+Can be stored in any dataiku dataset with write access.
 Manage Folder (Containing the template Excel to be populated)
-Can be stored in the Blob Storage or the local file system.
+Can be stored on any File System connection.
 
 
 - DSS Output 
 Managed Folder 
-Can be stored in the Blob Storage or the local file system.
+Can be stored on any File System connection
 
 
 3. Combination of 1 and 2 into one recipe
@@ -102,5 +102,6 @@ Same as 1 & 2 combined
 Same as component 2
 
 
-- DSS Output : Managed Folder (Containing Excel file template populated with data)
-Can be stored on Blob storage connection or local File System connection
+- DSS Output : 
+Managed Folder (Containing Excel file template populated with data)
+Can be stored on any File System connection
